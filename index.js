@@ -2,19 +2,15 @@ const express = require('express');
 // const http = require('http');
 
 const app = express();
-const router = express.Router();
 
-const route = router.get('/', (req, res) =>{
-    res.send('I am the root');
-});
+app.use(express.json());
 
-const notRoot = router.get('/notRoot', (req, res) =>{
-    res.send('I am not the root');
-});
+const routeLivros = require('./src/routes/livroRoute');
 
-app.use('/', route);
-app.use('/notRoot', notRoot);
+app.use('/livros', routeLivros);
 
 app.listen(3000, () =>{
     console.log('API rodando');
 });
+
+module.exports = app;
