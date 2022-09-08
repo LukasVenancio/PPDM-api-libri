@@ -8,9 +8,9 @@ const livroModel = connection.define(
     {
         cod_livro:{
 
-            type: Sequelize.INTEGER,
+            type: Sequelize.INTEGER(10),
             primaryKey: true,
-            autiIncrement: true
+            autoIncrement: true
 
         },
         titulo:{
